@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://co8auk7jofj0x"]
+
+[ext_resource type="Script" path="res://scenes/block/block.gd" id="1_810mw"]
+[ext_resource type="Texture2D" uid="uid://10u8cpobagl2" path="res://assets/sprites/bloco.png" id="2_o8i6r"]
+[ext_resource type="Texture2D" uid="uid://buef35tcqloom" path="res://assets/sprites/light_rectangle.jpg" id="3_fv8xb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao1sp"]
+size = Vector2(70, 20)
+
+[node name="Block" type="StaticBody2D" groups=["block"]]
+script = ExtResource("1_810mw")
+life = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_o8i6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ao1sp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_fv8xb")

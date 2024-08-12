@@ -1,0 +1,147 @@
+[gd_scene load_steps=8 format=3 uid="uid://8p7so1mu5d2t"]
+
+[ext_resource type="Script" path="res://scenes/levels/level_01/level_01.gd" id="1_ynf1n"]
+[ext_resource type="Texture2D" uid="uid://br5ssw0vm26l4" path="res://assets/sprites/campo-roxo.png" id="2_g8h8i"]
+[ext_resource type="PackedScene" uid="uid://dtccu8exnisfh" path="res://scenes/paddle/paddle.tscn" id="3_6l6ys"]
+[ext_resource type="PackedScene" uid="uid://opexandmkjhv" path="res://scenes/ball/ball.tscn" id="4_s46s6"]
+[ext_resource type="PackedScene" uid="uid://co8auk7jofj0x" path="res://scenes/block/block.tscn" id="5_m6aac"]
+[ext_resource type="PackedScene" uid="uid://bcj21mdtnsnfs" path="res://scenes/GameManeger/game_maneger.tscn" id="6_tlmin"]
+[ext_resource type="PackedScene" uid="uid://d0xqfoue26ref" path="res://scenes/components/menu_paused/menu_paused.tscn" id="7_46b7h"]
+
+[node name="level_02" type="Node2D"]
+script = ExtResource("1_ynf1n")
+
+[node name="Backgroud" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+texture = ExtResource("2_g8h8i")
+
+[node name="Paddle" parent="." instance=ExtResource("3_6l6ys")]
+position = Vector2(400, 550)
+speed = 300.0
+
+[node name="ball" parent="." node_paths=PackedStringArray("game_maneger") instance=ExtResource("4_s46s6")]
+position = Vector2(400, 504)
+game_maneger = NodePath("../GameManeger")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 183.0
+offset_top = 254.0
+offset_right = 635.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 48
+text = "Press space to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameManeger" parent="." node_paths=PackedStringArray("blocks") instance=ExtResource("6_tlmin")]
+position = Vector2(400, 504)
+blocks = NodePath("../Blocks")
+next_level = "res://scenes/levels/level_01/level_01.tscn"
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Block" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(60, 50)
+life = 3
+
+[node name="Block2" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(145, 50)
+life = 3
+
+[node name="Block3" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(230, 50)
+life = 3
+
+[node name="Block4" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(315, 50)
+life = 3
+
+[node name="Block5" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(400, 50)
+life = 3
+
+[node name="Block6" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(485, 50)
+life = 3
+
+[node name="Block7" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(570, 50)
+life = 3
+
+[node name="Block8" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(655, 50)
+life = 3
+
+[node name="Block9" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(740, 50)
+life = 3
+
+[node name="Block10" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(60, 90)
+life = 2
+
+[node name="Block11" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(145, 90)
+life = 2
+
+[node name="Block12" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(230, 90)
+life = 2
+
+[node name="Block13" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(315, 90)
+life = 2
+
+[node name="Block14" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(400, 90)
+life = 2
+
+[node name="Block15" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(485, 90)
+life = 2
+
+[node name="Block16" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(570, 90)
+life = 2
+
+[node name="Block17" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(655, 90)
+life = 2
+
+[node name="Block18" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(740, 90)
+life = 2
+
+[node name="Block19" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(60, 130)
+
+[node name="Block20" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(145, 130)
+
+[node name="Block21" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(230, 130)
+
+[node name="Block22" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(315, 130)
+
+[node name="Block23" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(400, 130)
+
+[node name="Block24" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(485, 130)
+
+[node name="Block25" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(570, 130)
+
+[node name="Block26" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(655, 130)
+
+[node name="Block27" parent="Blocks" instance=ExtResource("5_m6aac")]
+position = Vector2(740, 130)
+
+[node name="MenuPaused" parent="." node_paths=PackedStringArray("level") instance=ExtResource("7_46b7h")]
+visible = false
+level = NodePath("..")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.345098, 0.345098, 0.345098, 1)

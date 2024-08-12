@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://wytgm15t4l71"]
+
+[ext_resource type="Script" path="res://scenes/components/select_level/select_level.gd" id="1_finf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2oay"]
+size = Vector2(236, 52)
+
+[node name="Select_level" type="Node2D"]
+script = ExtResource("1_finf7")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_top = 1.0
+offset_right = 235.0
+offset_bottom = 128.0
+text = "
+"
+
+[node name="Button" type="Button" parent="MenuButton"]
+layout_mode = 0
+offset_right = 237.0
+offset_bottom = 53.0
+text = "Level 1"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MenuButton/Button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuButton/Button/StaticBody2D"]
+position = Vector2(118, 27)
+shape = SubResource("RectangleShape2D_x2oay")
+
+[node name="Button2" type="Button" parent="MenuButton"]
+layout_mode = 0
+offset_top = 78.0
+offset_right = 237.0
+offset_bottom = 131.0
+text = "Level 2"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MenuButton/Button2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuButton/Button2/StaticBody2D"]
+position = Vector2(118, 27)
+shape = SubResource("RectangleShape2D_x2oay")
+
+[connection signal="pressed" from="MenuButton/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MenuButton/Button2" to="." method="_on_button_2_pressed"]

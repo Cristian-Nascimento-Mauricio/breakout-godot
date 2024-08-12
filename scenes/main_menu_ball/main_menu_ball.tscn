@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4a17ab6ebq1c"]
+
+[ext_resource type="Script" path="res://scenes/main_menu_ball/main_menu_ball.gd" id="1_hpqqj"]
+[ext_resource type="Texture2D" uid="uid://c20vkgbq1hntj" path="res://assets/sprites/bola.png" id="2_5wwbl"]
+[ext_resource type="Texture2D" uid="uid://d1ryskcrtnrjl" path="res://assets/sprites/light.jpg" id="3_w2e4b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nijis"]
+
+[node name="main_menu_ball" type="Area2D"]
+script = ExtResource("1_hpqqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5wwbl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nijis")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("3_w2e4b")
+texture_scale = 0.2
+
+[node name="left" type="RayCast2D" parent="."]
+target_position = Vector2(-50, 0)
+
+[node name="right" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+
+[node name="top" type="RayCast2D" parent="."]
+target_position = Vector2(0, -50)
+
+[node name="below" type="RayCast2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://opexandmkjhv"]
+
+[ext_resource type="Texture2D" uid="uid://c20vkgbq1hntj" path="res://assets/sprites/bola.png" id="1_2jtkg"]
+[ext_resource type="Script" path="res://scenes/ball/ball.gd" id="1_qdsjb"]
+[ext_resource type="Texture2D" uid="uid://d1ryskcrtnrjl" path="res://assets/sprites/light.jpg" id="3_w6omb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6t8f"]
+
+[node name="ball" type="Area2D"]
+script = ExtResource("1_qdsjb")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_2jtkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o6t8f")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 2.0
+texture = ExtResource("3_w6omb")
+texture_scale = 0.15
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqff66r510hdr"]
+
+[ext_resource type="Script" path="res://scenes/components/github/githubLink.gd" id="1_m53ph"]
+[ext_resource type="Texture2D" uid="uid://cjtx0rklrg8jd" path="res://assets/sprites/github.png" id="2_lg2ew"]
+[ext_resource type="Texture2D" uid="uid://d1ryskcrtnrjl" path="res://assets/sprites/light.jpg" id="3_un4tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sehex"]
+size = Vector2(55, 50)
+
+[node name="LinkButton" type="Node2D"]
+script = ExtResource("1_m53ph")
+
+[node name="LinkButton" type="LinkButton" parent="."]
+offset_left = -22.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 20.0
+uri = "https://github.com/Cristian-Nascimento-Mauricio/breakout-godot.git"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.999999, 0)
+scale = Vector2(0.091, 0.08)
+texture = ExtResource("2_lg2ew")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, -2.27374e-13)
+scale = Vector2(0.326705, 0.284091)
+enabled = false
+energy = 4.0
+shadow_color = Color(0.992157, 0, 0.670588, 0)
+texture = ExtResource("3_un4tv")
+texture_scale = 0.6
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_sehex")
+
+[connection signal="focus_entered" from="LinkButton" to="." method="_on_link_button_focus_entered"]
+[connection signal="mouse_entered" from="LinkButton" to="." method="_on_link_button_mouse_entered"]
+[connection signal="mouse_exited" from="LinkButton" to="." method="_on_link_button_mouse_exited"]

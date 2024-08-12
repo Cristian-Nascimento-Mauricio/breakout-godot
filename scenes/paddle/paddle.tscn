@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtccu8exnisfh"]
+
+[ext_resource type="Script" path="res://scenes/paddle/paddle.gd" id="1_6rpde"]
+[ext_resource type="Texture2D" uid="uid://b1l6bgvlm3va7" path="res://assets/sprites/paddle.png" id="1_44xqo"]
+[ext_resource type="Texture2D" uid="uid://buef35tcqloom" path="res://assets/sprites/light_rectangle.jpg" id="3_2ran3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bqjf"]
+size = Vector2(90, 0)
+
+[node name="Paddle" type="StaticBody2D" groups=["paddle"]]
+script = ExtResource("1_6rpde")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_44xqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_5bqjf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 2.5
+texture = ExtResource("3_2ran3")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0uy6xqv4lri7"]
+
+[ext_resource type="Script" path="res://scenes/levels/level_01/level_01.gd" id="1_q8q85"]
+[ext_resource type="PackedScene" uid="uid://bqff66r510hdr" path="res://scenes/components/github/githubLink.tscn" id="2_812k6"]
+[ext_resource type="PackedScene" uid="uid://wytgm15t4l71" path="res://scenes/components/select_level/select_level.tscn" id="3_h6a5v"]
+[ext_resource type="PackedScene" uid="uid://d4a17ab6ebq1c" path="res://scenes/main_menu_ball/main_menu_ball.tscn" id="4_vc6d8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0say1"]
+load_path = "res://.godot/imported/campo-roxo.png-707a166f822ed5dbf3a2bc5a0378338a.ctex"
+
+[node name="level_01" type="Node2D"]
+script = ExtResource("1_q8q85")
+
+[node name="Backgroud" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+texture = SubResource("CompressedTexture2D_0say1")
+
+[node name="LinkButton" parent="." instance=ExtResource("2_812k6")]
+position = Vector2(765, 567)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(26, 85)
+
+[node name="Select_level" parent="." instance=ExtResource("3_h6a5v")]
+position = Vector2(281, 224)
+
+[node name="Balls" type="Node2D" parent="."]
+
+[node name="main_menu_ball" parent="Balls" instance=ExtResource("4_vc6d8")]
+position = Vector2(106, 312)
+
+[node name="main_menu_ball2" parent="Balls" instance=ExtResource("4_vc6d8")]
+position = Vector2(336, 90)
+
+[node name="main_menu_ball3" parent="Balls" instance=ExtResource("4_vc6d8")]
+position = Vector2(705, 289)
+
+[node name="main_menu_ball4" parent="Balls" instance=ExtResource("4_vc6d8")]
+position = Vector2(231, 473)
+
+[node name="main_menu_ball5" parent="Balls" instance=ExtResource("4_vc6d8")]
+position = Vector2(591, 531)
